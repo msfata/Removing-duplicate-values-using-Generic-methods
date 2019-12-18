@@ -1,0 +1,29 @@
+import java.util.HashSet;
+
+public class Testing {
+
+	public static void main(String[] args) {
+		Integer[] arr = { 1, 2, 3, 4, 1, 2, 3 };
+		HashSet<Integer> hsi = removeDuplicateValues(arr);
+		hsi.forEach(value -> System.out.print(value + " "));
+		System.out.println();
+
+		String[] str = { "Mohammed", "Shafiq", "Fata", "Shafiq" };
+		HashSet<String> hss = removeDuplicateValues(str);
+		hss.forEach(value -> System.out.print(value + " "));
+		System.out.println();
+
+		Character[] ch = { 'A', 'B', 'C', 'D', 'A', 'B' };
+		HashSet<Character> hsc = removeDuplicateValues(ch);
+		hsc.forEach(value -> System.out.print(value + " "));
+	}
+
+	@SafeVarargs
+	private static <T> HashSet<T> removeDuplicateValues(T... input) {
+		HashSet<T> unique = new HashSet<T>();
+		for (T i : input) {
+			unique.add(i);
+		}
+		return unique;
+	}
+}
