@@ -1,29 +1,61 @@
-import java.util.HashSet;
 
-public class Testing {
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class CommonElementsInTwoElementOfStringArray {
 
 	public static void main(String[] args) {
-		Integer[] arr = { 1, 2, 3, 4, 1, 2, 3 };
-		HashSet<Integer> hsi = removeDuplicateValues(arr);
-		hsi.forEach(value -> System.out.print(value + " "));
-		System.out.println();
-
-		String[] str = { "Mohammed", "Shafiq", "Fata", "Shafiq" };
-		HashSet<String> hss = removeDuplicateValues(str);
-		hss.forEach(value -> System.out.print(value + " "));
-		System.out.println();
-
-		Character[] ch = { 'A', 'B', 'C', 'D', 'A', 'B' };
-		HashSet<Character> hsc = removeDuplicateValues(ch);
-		hsc.forEach(value -> System.out.print(value + " "));
+		String[] array = { "1,2,3,4,5,8,9", "0,5,6,7" };
+		String firstCellArrayElement = filterFirstElementOfArray(array);
+		String secondCellArrayElement = filterSecondElementOfArray(array);
+		List<String> list = compareTwoString(firstCellArrayElement, secondCellArrayElement);
+		list.forEach(v -> System.out.print(v + "  "));
 	}
 
-	@SafeVarargs
-	private static <T> HashSet<T> removeDuplicateValues(T... input) {
-		HashSet<T> unique = new HashSet<T>();
-		for (T i : input) {
-			unique.add(i);
+	/*
+	 * compare two string against each other
+	 */
+	public static List<String> compareTwoString(String s1, String s2) {
+		List<String> list = new ArrayList<String>();
+		for (int i = 0; i < s1.length(); i++) {
+			for (int j = 0; j < s2.length(); j++) {
+				if (s1.charAt(i) == s2.charAt(j)) {
+					list.add("" + s1.charAt(i));
+				}
+			}
 		}
-		return unique;
+		return list;
+	}
+
+	/*
+	 * filtering commas from string first element
+	 */
+	public static String filterFirstElementOfArray(String... array) {
+		String a = array[0];
+		char[] c = a.toCharArray();
+		String result = "";
+		for (int i = 0; i < c.length; i++) {
+			if (c[i] != ',') {
+				result += c[i];
+			}
+		}
+		return result;
+	}
+
+	/*
+	 * filtering commas from string second element
+	 */
+	public static String filterSecondElementOfArray(String... array) {
+		String a = array[1];
+		char[] c = a.toCharArray();
+		String result = "";
+		for (int i = 0; i < c.length; i++) {
+			if (c[i] != ',') {
+				result += c[i];
+			}
+		}
+		return result;
 	}
 }
+
