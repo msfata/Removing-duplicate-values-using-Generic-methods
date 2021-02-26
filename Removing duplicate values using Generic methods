@@ -2,7 +2,7 @@
 
 import java.util.ArrayList;
 import java.util.List;
-
+/*by mohammed shafiq fata*/
 public class CommonElementsInTwoElementOfStringArray {
 
 	public static void main(String[] args) {
